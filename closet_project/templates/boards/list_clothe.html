@@ -19,6 +19,29 @@
     <button type="submit" class="btn custom-btn"><i class="fas fa-search"></i></button>
   </form>
 
+  <form id="resetForm" method="GET" class="text-center mb-3 form-element">
+  <button type="button" onclick="resetFilters()" class="btn custom-btn">リセット</button>
+  </form>
+
+  <style>
+#resetForm button {
+  padding: 8px 50px; 
+  margin-right: 50px;
+}
+</style>
+
+  <script>
+function resetFilters() {
+  // カラーとカテゴリーのセレクトボックスをリセット
+  document.getElementById("color").value = "";
+  document.getElementById("category").value = "";
+
+  // フォームを送信する
+  document.getElementById("filterForm").submit();
+}
+</script>
+
+
 
   <style>
   #sortForm {
