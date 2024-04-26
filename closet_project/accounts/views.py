@@ -15,6 +15,11 @@ from django.contrib.auth import password_validation
 
 User = get_user_model()
 
+def portfolio(request):
+    return render(
+        request, 'accounts/portfolio.html'
+    )
+
 def home(request):
     return render(
         request, 'accounts/home.html'
