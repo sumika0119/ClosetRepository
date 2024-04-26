@@ -142,6 +142,7 @@
       font-size: 15px;
       cursor: pointer;
       margin-left: 10px;
+      text-align: center;
   }
   
   .custom-btn:hover {
@@ -214,3 +215,15 @@
     color: #333; /* Change the color as needed */
     text-align: center;
   }
+
+  .heading2 {
+    font-size: 40px; /* Change the font size as needed */
+    font-family: Arial, sans-serif; /* Change the font family as needed */
+    color: #333; /* Change the color as needed */
+    text-align: center;
+  }
+
+  body {
+    justify-content: center;
+    text-align: center;
+    }
