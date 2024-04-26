@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+{% block content %}
+  {% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,12 +9,22 @@
     <title>Portfolio</title>
 </head>
 <body>
-    <h1>作品No.1 Pocket Closet</h1>
-    <p>This is my portfolio page.</p>
+    <h1 class="heading2">作品No.1 my closet</h1>
+
+    <div class="image-container">
+    <img src="{% static 'accounts/images/portfolio.jpg' %}" class="custom-image">
+    </div>
+
+    <h1 class="heading1">「いつもとは違う色の服を買いたい！」「持っている服と合わせたいな」と思ったことはありませんか？</h1>
+    <h1 class="heading1">my closetは、そんな願いを叶えられるアプリです</h1>
+    <h1 class="heading1">自分の服を管理して</h1>
+    <h1 class="heading1">いつでも、どこへでも自分の服を持ち運ぼう！</h1>
     <!-- ポートフォリオからアプリへのリンク -->
-    <a href="{% url 'accounts:home' %}">Go to My App</a>
-    {% comment %} <div class="button-container">
-      <button type="submit" class="btn btn-primary">ログイン</button>
-    </div> {% endcomment %}
+    <button type="button" onclick="window.location.href='{% url 'accounts:home' %}'" class="btn custom-btn">アプリにアクセス</button>
+
+  
 </body>
 </html>
+
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
