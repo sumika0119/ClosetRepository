@@ -63,6 +63,7 @@
       font-size: 25px; 
       margin-bottom: 20px;
     }
+
   
     /* 価格、購入日、カテゴリー、カラー、購入したお店の文字サイズを大きくする */
     .detail-container p.title {
@@ -104,7 +105,7 @@
   
     .custom-paragraph {
       font-family: 'Arial', sans-serif; /* フォントの種類 */
-      font-size: 30px; /* フォントのサイズ */
+      font-size: 40px; /* フォントのサイズ */
       background-color: #ffe6e6; /* 薄いピンク色 */
       text-align: center;
       padding: 20px; /* 上下左右に余白を追加 */
@@ -128,8 +129,8 @@
   }
   
   .custom-image {
-    width: 700px; 
-    height: 400%; 
+    width: 600px; 
+    height: 300%; 
   }
   
   
@@ -180,6 +181,8 @@
     
   }
   
+  
+
   .detail-info {
     display: flex;
     flex-wrap: wrap;
@@ -202,5 +205,12 @@
   }
   
   .detail-left {
+    text-align: center;
+  }
+
+  .heading1 {
+    font-size: 20px; /* Change the font size as needed */
+    font-family: Arial, sans-serif; /* Change the font family as needed */
+    color: #333; /* Change the color as needed */
     text-align: center;
   }
