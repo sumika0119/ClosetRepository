@@ -1,12 +1,39 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="text-center">
-<form method="POST">
-{% csrf_token %}
-{{ regist_form.as_p }}
-  <div class="button-container">
-    <button type="submit" class="btn btn-primary">ユーザ登録</button>
-  </div>
-</form>
-</div>
+  <p class="custom-paragraph">ユーザ登録画面</p>
+   <div class="registration-container">
+    <form method="POST" enctype="multipart/form-data"  class="registration-form">
+      {% csrf_token %}
+
+      <div class="form-group">
+        <label>ユーザ名 </label>
+        {{ regist_form.username}}
+        {{ regist_form.username.errors }}
+        <p>3文字以上で設定してください</p>
+      </div>
+
+       <div class="form-group">
+        <label for="email">メールアドレス</label>
+        {{ regist_form.email}}
+        {{ regist_form.email.errors }}
+      </div>
+
+      <div class="form-group">
+        <label for="password">パスワード</label>
+        {{ regist_form.password}}
+        {{ regist_form.password.errors }}
+        <p>英字を含めた8文字以上で設定してください</p>
+      </div>
+
+      <div class="form-group">
+        <label for="confirm_password">パスワード再入力</label>
+        {{ regist_form.confirm_password}}
+        {{ regist_form.confirm_password.errors }}
+      </div>
+
+      <div class="button-container">
+        <button type="submit" class="btn btn-primary">ユーザ登録</button>
+      </div>
+    </form>
+   </div>
 {% endblock %}
