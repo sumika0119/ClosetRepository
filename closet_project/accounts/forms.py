@@ -5,14 +5,29 @@ from django.contrib.auth.password_validation import validate_password
 
 
 class RegistForm(forms.ModelForm):
-    username = forms.CharField(label='名前')
-    email = forms.EmailField(label='メールアドレス')
-    password = forms.CharField(label='パスワード', widget=forms.PasswordInput())
-    confirm_password = forms.CharField(label='パスワード再入力', widget=forms.PasswordInput())
+    username = forms.CharField(label='ユーザ名', widget=forms.TextInput(attrs={'class': 'form-control'}))
+    email = forms.EmailField(label='メールアドレス', widget=forms.EmailInput(attrs={'class': 'form-control'}))
+    password = forms.CharField(label='パスワード', widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+    confirm_password = forms.CharField(label='パスワード再入力', widget=forms.PasswordInput(attrs={'class': 'form-control'}))
 
     class Meta():
         model = Users
         fields = ('username', 'email', 'password')
+        
+    def clean_username(self):
+        value = self.cleaned_data['username']
+        if len(value) < 3:
+            raise forms.ValidationError(
+                '%(min_length)s文字以上で入力してください', params={'min_length': 3})
+        return value
+
+    def clean_email(self):
+        value = self.cleaned_data['email']
+        return value
+
+    def clean_password(self):
+        value = self.cleaned_data['password']
+        return value
                 
     def clean(self):
         cleaned_data = super().clean()
@@ -39,7 +54,7 @@ class LoginForm(forms.Form):
         return email
     
 class UserEditForm(forms.ModelForm):
-    username = forms.CharField(label='名前')
+    username = forms.CharField(label='ユーザ名')
     email = forms.EmailField(label='メールアドレス')
         
     class Meta:
